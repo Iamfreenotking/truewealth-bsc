@@ -21,6 +21,7 @@ Snapshot: BNB Smart Chain block **128608198**, 2026-10-19 19:13 UTC. Balances an
 | Initial pool deposit | 204,750,000 TRUEWEALTH + 0.001 BNB |
 | LP burn holder | [`0x000000000000000000000000000000000000dEaD`](https://bscscan.com/token/0x4Adfb6c1503D8Fdcd2fbE39F4C4Ef5C941992ab1?a=0x000000000000000000000000000000000000dEaD) |
 | Independent project information site | [truewealth-bnb.david-0946.chatgpt.site](https://truewealth-bnb.david-0946.chatgpt.site/) (free hosted subdomain, **not** a user-owned custom domain) |
+| Original 32×32 SVG token logo | [Public download](https://truewealth-bnb.david-0946.chatgpt.site/logo-32.svg) |
 
 The team allocation is held by the reserve contract, so the OKX wallet does **not** display it as a direct balance. The fixed beneficiary can withdraw at any time. It is **not** time-locked. At the snapshot, the launch wallet directly held 0 TRUEWEALTH; 204.75 million tokens were in the pool. The burn address held 452.493093869950681587 of 452.493093869950682587 total LP units; the 1000-wei difference is V2's minimum liquidity.
 
@@ -33,9 +34,9 @@ The team allocation is held by the reserve contract, so the OKX wallet does **no
 ## Submission blockers and checks
 
 1. **Project identity:** create project-controlled X/Telegram accounts and a reachable contact address. [CZ's X account](https://x.com/cz_binance) is inspiration only. It must not be entered as the project's social account, and its images/text should not be copied into the website without specific rights and attribution.
-2. **Open source:** publish the project repository under the chosen GitHub account after that account exists. Verify the exact deployed bytecode and the team reserve on BscScan; record successful verification URLs. Publishing source alone is not the same as verification.
+2. **Open source:** publish the project repository under the chosen GitHub account. Verify the exact deployed bytecode and the team reserve on BscScan; record successful verification URLs. Publishing source alone is not the same as verification. At the time this dossier was updated, BscScan still showed “Verify and Publish” for the token.
 3. **Liquidity:** the initial 0.001 BNB is exceptionally shallow. Review current pool reserves and price impact before encouraging trading or seeking broad promotion. No campaign can guarantee 10,000 buyers.
-4. **Brand assets:** use the project's original `mark.svg`. A local third-party photograph is not public site material; image-use permission does not imply a CZ or Binance endorsement. Confirm each listing platform's dimensions and file format before uploading.
+4. **Brand assets:** use the project's original [32×32 SVG logo](https://truewealth-bnb.david-0946.chatgpt.site/logo-32.svg), which follows the Etherscan token-info guideline. A local third-party photograph is not public site material; image-use permission does not imply a CZ or Binance endorsement. Confirm each listing platform's dimensions and file format before uploading. BscScan will not pick up a website image automatically: it requires its token-info update form, a BscScan account, source verification, contract-address ownership proof, and human review.
 5. **Platforms:** after prerequisites are ready, use [CoinGecko's request form](https://partner.coingecko.com/request-form/new) and [CoinMarketCap's request form](https://coinmarketcap.com/request/). Their review/indexing is independent and cannot be guaranteed. Search in wallets by the full contract address first; ticker/name discovery may lag or be filtered.
 
 Do not imply affiliation with Binance, CZ, PancakeSwap, CoinGecko, CoinMarketCap, Phantom, Uniswap, or OKX. Do not present the hosted subdomain as an owned independent domain.
