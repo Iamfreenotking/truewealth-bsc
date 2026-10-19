@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="True Wealth (TRUEWEALTH) 的开源合约、BNB Chain 地址、团队份额和交易池风险说明。">
+  <title>True Wealth · 开源资料 / Open-source facts</title>
+  <style>
+    :root{font:16px/1.75 system-ui,-apple-system,sans-serif;background:#101711;color:#eaf2e5}*{box-sizing:border-box}body{margin:0}main{max-width:940px;margin:auto;padding:54px 22px 85px}a{color:#c8ff30}h1{font-size:clamp(2.3rem,6vw,4.6rem);line-height:1.1;letter-spacing:-.06em;margin:10px 0 25px}h2{font-size:1.5rem;margin:0 0 12px}.eyebrow{color:#c8ff30;text-transform:uppercase;letter-spacing:.2em;font-weight:800;font-size:.75rem}.lead{font-size:1.1rem;color:#bfccbb}.warning{border:2px solid #e1b347;background:#352b16;padding:23px;margin:32px 0}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:34px 0}.card{border:1px solid #476047;background:#1b281d;padding:23px;border-radius:7px}.card small{display:block;color:#a9b9a5;text-transform:uppercase;letter-spacing:.1em}.card strong{display:block;font-size:1.55rem;color:#c8ff30;line-height:1.2;overflow-wrap:anywhere;margin:12px 0}.card p{font-size:.9rem;color:#c0ccbb}.section{margin-top:52px;border-top:1px solid #40513d;padding-top:34px}code{overflow-wrap:anywhere;color:#d5e9c8}.links{display:flex;flex-wrap:wrap;gap:9px}.links a{border:1px solid #6a8266;padding:10px 14px;text-decoration:none;border-radius:4px;font-weight:700}.note{font-size:.82rem;color:#9cac97}.en{color:#a8bba2}footer{border-top:1px solid #40513d;margin-top:55px;padding-top:20px;color:#8da089;font-size:.82rem}@media(max-width:620px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body><main>
+  <p class="eyebrow">BNB Chain · open-source record</p>
+  <h1>True Wealth<br><span style="color:#c8ff30">先核对，再决定。</span></h1>
+  <p class="lead">这里是 TRUEWEALTH 的公开技术资料页，不是钱包连接或购买页面。任何人都可以独立核对下方地址和代码。</p>
+  <p class="en">This is an informational open-source page, not a wallet connector or trading interface. Verify the contracts and pool yourself.</p>
+  <aside class="warning"><strong>重要风险 / Important risk</strong><p>交易池最初只有 <strong>0.001 BNB</strong>。这么少的资金无法让 0.1 或 1 BNB 的买单以稳定价格成交；一次买卖就可能造成极端价格变化。页面数据是 2026-10-19 19:13 UTC 的快照，不是实时报价。</p><p class="en">The pool started with only 0.001 BNB. Large trades can cause extreme price movement or fail. Snapshot only; not a live quote.</p></aside>
+  <div class="grid">
+    <div class="card"><small>Token / 代币</small><strong>210,000,000</strong><p>True Wealth · TRUEWEALTH · 固定总量，零转账税；没有 owner、暂停、黑名单或再次增发功能。</p><a href="https://bscscan.com/address/0x962C4730CFd8478D63C754c6060B82Aa2142d8D1">查看代币合约 ↗</a></div>
+    <div class="card"><small>Team reserve / 团队份额</small><strong>5,250,000 · 2.5%</strong><p>在独立保管合约，不显示于受益人的 OKX 钱包。受益人可随时取出，<b>并非锁仓</b>。</p><a href="https://bscscan.com/token/0x962C4730CFd8478D63C754c6060B82Aa2142d8D1?a=0x7e2a9d7373f257f39be79472D63c0cb660b8B75a">查看团队合约余额 ↗</a></div>
+    <div class="card"><small>PancakeSwap V2 / 交易池</small><strong>204.75M + 0.001 BNB</strong><p>创建池子时投入的代币与 BNB。价格和池子余额可能随交易变化。</p><a href="https://bscscan.com/address/0x4Adfb6c1503D8Fdcd2fbE39F4C4Ef5C941992ab1">查看交易池 ↗</a></div>
+    <div class="card"><small>LP burn / 取回凭证</small><strong>dead address</strong><p>绝大部分 LP 凭证直接发至无法控制的地址；这不保证价格稳定或资金安全。</p><a href="https://bscscan.com/token/0x4Adfb6c1503D8Fdcd2fbE39F4C4Ef5C941992ab1?a=0x000000000000000000000000000000000000dEaD">查看销毁地址持仓 ↗</a></div>
+  </div>
+  <section class="section"><h2>关键地址 / Key addresses</h2><p>代币 Token: <code>0x962C4730CFd8478D63C754c6060B82Aa2142d8D1</code><br>团队保管 Team reserve: <code>0x7e2a9d7373f257f39be79472D63c0cb660b8B75a</code><br>指定受益人 Beneficiary: <code>0x5D5D0F0b1b64c40d6e27528Cf678D0e188E941eC</code><br>V2 池 Pool: <code>0x4Adfb6c1503D8Fdcd2fbE39F4C4Ef5C941992ab1</code></p><p class="note">链上快照：区块 128608198。查看当前余额时，应以区块浏览器显示的最新数据为准。</p></section>
+  <section class="section"><h2>开源与独立性 / Source & independence</h2><p>代码、测试与验证材料放在公开仓库。我们不声称已通过独立审计。TRUEWEALTH 与 CZ、Binance、BNB Chain、PancakeSwap、OKX 或 Phantom 没有官方合作或背书。CZ 的帖子仅为灵感来源，不是本项目官方社交账号。代币可能归零；不要投入无法承受损失的资金。</p><p class="en">Open-source code is not an audit. No affiliation or endorsement by the named people or platforms. Token value may fall to zero.</p><div class="links"><a href="https://github.com/salaamalykum/truewealth-bsc">查看 GitHub 源代码 ↗</a><a href="https://truewealth-bnb.david-0946.chatgpt.site">项目资料官网 ↗</a></div></section>
+  <footer>True Wealth · 2026 · This page does not process payments, request wallet access, or recommend trading.</footer>
+</main></body></html>

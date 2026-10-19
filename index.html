@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>True Wealth · 上线助手</title>
+    <style>
+      :root { font-family: system-ui, -apple-system, sans-serif; color: #e9edf4; background: #10151d; }
+      body { max-width: 760px; margin: 32px auto; padding: 0 18px 60px; line-height: 1.6; }
+      h1 { margin-bottom: 4px; } h2 { margin: 0 0 8px; font-size: 1.25rem; }
+      section { padding: 20px; margin: 18px 0; border: 1px solid #3a4656; border-radius: 14px; background: #19222d; }
+      label { display: block; margin: 12px 0; }
+      input[type="text"], input[type="number"] { box-sizing: border-box; width: 100%; padding: 11px; color: #fff; background: #0c1219; border: 1px solid #516074; border-radius: 8px; font-size: 1rem; }
+      input[type="checkbox"] { margin-right: 7px; }
+      button { padding: 11px 16px; background: #f6c444; border: 0; border-radius: 8px; font-weight: 700; cursor: pointer; }
+      button:disabled { opacity: .45; cursor: not-allowed; }
+      button:focus-visible, input:focus-visible, summary:focus-visible { outline: 3px solid #a8d9ff; outline-offset: 3px; }
+      code { overflow-wrap: anywhere; color: #a8d9ff; } a { color: #a8d9ff; }
+      .muted { color: #b3bdc9; } .warning { color: #ffd587; }
+      .step-note { margin: 0 0 14px; color: #d9e2ee; }
+      .hint { margin: 6px 0 14px; color: #b3bdc9; font-size: .94rem; }
+      .technical { border-top: 1px solid #3a4656; margin-top: 18px; padding-top: 12px; }
+      .technical summary { cursor: pointer; color: #a8d9ff; }
+      .status-box { border-color: #9d7c26; background: #2b281c; }
+      #status { white-space: pre-wrap; overflow-wrap: anywhere; min-height: 25px; }
+      .logo-preview { width: 128px; height: 128px; object-fit: cover; object-position: center 25%; border-radius: 14px; border: 1px solid #516074; }
+    </style>
+  </head>
+  <body>
+    <h1>True Wealth · 上线助手</h1>
+    <img class="logo-preview" src="/mark.svg" alt="True Wealth 的 TW 字母标志" />
+    <p class="step-note">这是给发行人使用的操作页面，不是给买家购买代币的页面。按顺序完成下面 3 步即可。</p>
+    <p class="muted">连接钱包本身免费；创建代币、授权、加入流动性会产生 BNB 网络手续费。涉及花钱或上链的操作，都需要你亲自在 OKX 钱包确认。其他用户买卖不需要你批准。请勿把助记词或私钥输入任何页面。</p>
+    <section class="status-box" aria-label="当前操作提示">
+      <h2>现在的操作提示</h2>
+      <div id="status" role="status">请先完成第 1 步：连接 OKX 钱包。</div>
+    </section>
+    <section>
+      <h2>第 1 步：连接你的 OKX 钱包（免费）</h2>
+      <p class="step-note">点击下面的按钮，检查是不是你指定的钱包、是不是 BNB 主网。这一步不会创建代币，也不会转出 BNB。</p>
+      <p>指定的钱包地址：<code id="expected"></code></p>
+      <button id="connect">连接钱包，检查地址和网络</button>
+      <p id="wallet" class="muted">未连接</p>
+      <p id="connect-status" role="status" class="warning">如果 OKX 弹出“切换到 BNB 主网”，请核对后由你自己确认。切换网络不花钱。</p>
+    </section>
+    <section>
+      <h2>第 2 步：创建代币（会支付 BNB 网络手续费）</h2>
+      <p class="step-note">代币名称 True Wealth，简称 TRUEWEALTH；总共只创建 2.1 亿个，以后不能再增发。没有管理员、暂停按钮或交易税。</p>
+      <p>创建时，<strong>2.0475 亿个</strong>进入你的钱包；<strong>525 万个（2.5%）</strong>进入单独的团队保管地址，你的指定钱包可以随时取出这部分代币，<strong>它不是锁仓</strong>。</p>
+      <p class="warning">重要：创建成功后代币可以转账，但还不能让普通买家在 PancakeSwap 买到。要能交易，还必须完成第 3 步。创建不能撤销，也不能修改上面的数量。</p>
+      <label><input type="checkbox" id="deploy-consent" />我已核对名称、总量、团队份额和钱包地址，愿意自己在 OKX 确认创建</label>
+      <button id="deploy" disabled>创建代币（下一步会打开 OKX 确认）</button>
+      <p id="deploy-hint" class="hint">请先连接钱包，再勾选上面的确认框。</p>
+      <p>代币的链上地址：<code id="token-address">尚未创建</code></p>
+      <details class="technical">
+        <summary>已经创建过，但这里却显示“尚未创建”？点这里找回页面记录</summary>
+        <p>通常不用操作：同一浏览器会自动记住代币地址。只有换浏览器、清除浏览器数据，或创建成功后页面意外关闭，才需要从 BscScan 找到<strong>这个代币的合约地址</strong>，填在下面。它以 <code>0x</code> 开头，不是你的钱包地址，也不是交易编号。</p>
+        <p>找回只会检查并重新显示已创建的代币，<strong>不会再次创建、不会转账，也不收费</strong>。不确定地址时，请先停下，不要猜。</p>
+        <label for="recover-address">已创建代币的合约地址</label>
+        <input id="recover-address" type="text" placeholder="粘贴以 0x 开头的代币合约地址" autocomplete="off" spellcheck="false" />
+        <button id="recover" disabled>检查地址并找回记录</button>
+        <p id="recover-hint" class="hint">请先连接钱包，再填写完整的代币合约地址。</p>
+      </details>
+      <details class="technical">
+        <summary>查看团队保管地址（进阶信息）</summary>
+        <p>团队保管合约地址：<code id="reserve-address">尚未创建</code></p>
+      </details>
+    </section>
+    <section>
+      <h2>第 3 步：放入代币和 BNB，让别人可以买（会花钱）</h2>
+      <p class="step-note">先决定拿多少代币、多少 BNB 放进 PancakeSwap V2 的交易池。两者的比例决定最初售价；这两个数字目前还没定，所以页面不会替你填写。</p>
+      <label for="token-amount">放入交易池的 TRUEWEALTH 数量</label>
+      <input id="token-amount" type="number" min="0" step="any" placeholder="请填你自己决定的数量" />
+      <label for="bnb-amount">放入交易池的 BNB 数量</label>
+      <input id="bnb-amount" type="number" min="0" step="any" placeholder="请填你自己决定的数量" />
+      <p id="price" class="muted">填好两个数量后，这里会显示起始兑换比例。</p>
+      <p class="warning">这一步需你在 OKX 分别确认两次：先允许 PancakeSwap 使用你填写的代币数量，再正式放入代币和 BNB。交易池的“取回凭证”（LP）会直接送到无人能控制的地址，因此池里的资产以后不能由你取回；填错价格也无法撤销。</p>
+      <label><input type="checkbox" id="pool-consent" />我已核对两个数量，理解起始价格和永久不能取回流动性的风险</label>
+      <button id="pool" disabled>放入流动性（需要两次 OKX 确认）</button>
+      <p id="pool-hint" class="hint">请先连接钱包、创建代币，再填写两个数量并勾选确认框。</p>
+      <p>交易池的链上地址：<code id="pair-address">尚未创建</code></p>
+      <p>无法取回的公开证明：<a id="lp-proof" target="_blank" rel="noopener">尚未创建</a></p>
+      <details class="technical">
+        <summary>查看技术地址（进阶信息）</summary>
+        <p>PancakeSwap V2 路由器：<code id="router-address"></code><br />LP 接收地址：<code id="burn-address"></code></p>
+      </details>
+    </section>
+    <script type="module" src="/src/launch.js"></script>
+  </body>
+</html>

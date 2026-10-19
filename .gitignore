@@ -1,0 +1,10 @@
+node_modules/
+artifacts/
+cache/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+.DS_Store
+truewealth.jpeg
